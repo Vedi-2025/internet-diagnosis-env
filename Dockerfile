@@ -30,4 +30,4 @@ EXPOSE 7860
 
 # The command that runs when container starts
 # This starts your FastAPI server
-CMD ["python", "server.py"]
+CMD ["python", "server_main.py"]
