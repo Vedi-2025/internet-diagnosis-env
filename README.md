@@ -1,3 +1,26 @@
+---
+title: Internet Diagnosis Env
+emoji: 🌐
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+license: mit
+---
+```
+
+Your README.md should now start like this:
+```
+---
+title: Internet Diagnosis Env
+emoji: 🌐
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+license: mit
+---
+
 # 🌐 Internet Outage Diagnosis Environment
 
 An OpenEnv environment where an AI agent diagnoses
