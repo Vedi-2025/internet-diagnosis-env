@@ -116,10 +116,10 @@ Running `baseline.py` with `llama-3.1-8b-instant` via Groq:
 
 | Task | Score |
 |------|-------|
-| Task 1 (Easy) | 0.75 |
-| Task 2 (Medium) | 1.0 |
-| Task 3 (Hard) | 0.0 |
-| **Average** | **0.58** |
+| Task 1 (Easy) | 1.0 |
+| Task 2 (Medium) | 0.85 |
+| Task 3 (Hard) | 0.15 |
+| **Average** | **0.67** |
 
 ---
 
