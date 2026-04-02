@@ -12,7 +12,7 @@ from groq import Groq
 # ─────────────────────────────────────────────
 
 # ── Setup ──
-BASE_URL = "http://127.0.0.1:7860"  # your environment server
+BASE_URL = "https://Vedi23-internet-diagnosis-env.hf.space"  # your environment server
 client   = Groq(
     api_key = os.environ.get("GROQ_API_KEY", "your-groq-key-here")
 )
