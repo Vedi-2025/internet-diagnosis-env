@@ -1,0 +1,72 @@
+name: internet-diagnosis-env
+version: 1.0.0
+description: >
+  An OpenEnv environment where an AI agent diagnoses
+  real-world internet connectivity failures. The agent
+  observes network diagnostic data including ping times,
+  packet loss, signal strength, and DNS status, then
+  identifies the root cause of the outage.
+
+author: Vedika Dalvi
+tags:
+  - openenv
+  - networking
+  - diagnostics
+  - real-world
+
+environment:
+  type: episodic
+  difficulty: easy-to-hard
+
+endpoints:
+  reset: /reset
+  step: /step
+  state: /state
+  tasks: /tasks
+
+tasks:
+  - id: task_1_easy
+    name: Single Point Failure Diagnosis
+    difficulty: easy
+    pass_score: 0.6
+
+  - id: task_2_medium
+    name: Multi-Layer Network Diagnosis
+    difficulty: medium
+    pass_score: 0.5
+
+  - id: task_3_hard
+    name: Complex Intermittent Failure Diagnosis
+    difficulty: hard
+    pass_score: 0.4
+
+observation_space:
+  ping_to_router: float (ms, -1 means timeout)
+  ping_to_isp: float (ms, -1 means timeout)
+  ping_to_google: float (ms, -1 means timeout)
+  packet_loss: float (0-100 percent)
+  signal_strength: float (dBm, closer to 0 is better)
+  dns_resolution: boolean
+  connected_devices: integer
+  error_message: string (optional)
+  task_description: string
+
+action_space:
+  diagnosis: enum (diagnose_device, diagnose_router,
+    diagnose_isp, diagnose_dns, diagnose_partial,
+    request_more_info, escalate_to_engineer)
+  failing_component: string
+  suggested_fix: string
+  confidence: float (0.0 to 1.0)
+
+reward:
+  range: [-1.0, 1.0]
+  type: dense
+  description: >
+    Rewards correct diagnosis with partial credit
+    for identifying the right component or suggesting
+    a reasonable fix. Penalizes wrong diagnoses.
+
+baseline:
+  script: baseline.py
+  average_score: 0.58
